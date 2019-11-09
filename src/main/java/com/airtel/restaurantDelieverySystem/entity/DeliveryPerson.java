@@ -15,10 +15,23 @@ public class DeliveryPerson {
     public DeliveryPerson(String status, Order order) {
         this.status = status;
         this.order = order;
+        personID = count.incrementAndGet();
     }
 
     public DeliveryPerson(Order order) {
         this.order = order;
+        this.status = ACTIVE;
+        personID = count.incrementAndGet();
+    }
+
+    public DeliveryPerson() {
+        this.status = ACTIVE;
+        this.order = null;
+        personID = count.incrementAndGet();
+    }
+
+    public Long getPersonID() {
+        return personID;
     }
 
     public String getStatus() {
